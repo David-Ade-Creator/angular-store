@@ -1,0 +1,161 @@
+*body{
+   min-height: 400px;
+   margin-bottom: 100px;
+   clear: both;
+}
+.example-container {
+  width:100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.mat-card{
+  border-radius: 0;
+  background-color: #7419a6;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  height:58px;
+  cursor:default;
+}
+.menu-bar{
+  display:none;
+  color:white;
+  font-size: 1.5rem;
+  font-weight:400;
+}
+.sidelist a{
+  text-decoration: none;
+  color:#7419a6;
+}
+.navs a{
+  padding: 15px;
+  background-color: #7419a6;
+  margin: 0;
+  text-decoration: none;
+  cursor:default;
+  color:white;
+  font-size: 1.7rem;
+  font-family:sans-serif;
+  font-weight: 600;
+}
+
+.navs li{
+list-style-type: none;
+display: inline-block;
+}
+
+.nav-bar .cart a{
+  padding: 15px;
+  background-color: #7419a6;
+  margin: 0;
+  text-decoration: none;
+  cursor:default;
+  color:white;
+  font-size: 1.7rem;
+  font-family:sans-serif;
+  font-weight: 600;
+}
+
+.nav-bar .cart li{
+list-style-type: none;
+display: inline-block;
+}
+
+.nav-bar .logo{
+  margin-right: 10px;
+  color:white;
+}
+
+.sidenav{
+  position: absolute;
+  z-index: 7;
+  width:30%;
+  cursor:default;
+}
+.sidenav p,h4{
+  margin:10px;
+}
+.outlet{
+  width: 100%;
+  top:0;
+  left:0;
+  position: relative;
+}
+.flex{
+  display: flex;
+  justify-content: center;
+}
+.search{
+  width:130px;
+}
+.sbutton{
+  color:white;
+}
+.spinner{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  position: absolute;
+  border: 5px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 5px solid #7419a6;
+  width: 80px;
+  height: 80px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  z-index: 7;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+@media screen and (max-width: 992px) {
+  .example-container .sidenav{
+    width:60%;
+  }
+  .example-container .nav-bar .navs {
+    display:none;
+  }
+  .example-container mat-card {
+    display: flex;
+    justify-content: space-around;
+  }
+  .example-container .menu-bar{
+    display:block;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .example-container .sidenav{
+    width:70%;
+  }
+
+  .loader {
+    position: absolute;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #7419a6;
+    width: 60px;
+    height: 60px;
+  }
+
+}

@@ -1,0 +1,68 @@
+    <div class="container">
+        <div class="row" *ngIf="(toggleField === 'addMode') else editMode">
+            <div class="col-md-6 col-md-offset-3">
+              <h3>Add New product</h3>
+                <form name="form"  #productForm="ngForm" novalidate>
+                    <div class="form-group" [class.has-error]="(productForm.submitted || name.touched) && name.invalid" [class.has-success]="name.valid">
+                        <label for="Product name" class="control-label">Product Name</label>
+                        <input type="text" class="form-control" name="name" id="name" ngModel #name="ngModel" [(ngModel)]="product.name" minlength="3"  required>
+                        <span class="help-block" *ngIf="(productForm.submitted || name.touched) && name.errors?.required">Please enter your product description</span>
+                        <span class="help-block" *ngIf="name.touched && name.errors?.minlength">Must be more than 3 characters</span>
+                    </div>
+                    <div class="form-group" [class.has-error]="(productForm.submitted || price.touched) && price.invalid" [class.has-success]="price.valid">
+                        <label for="Product price" class="control-label">Product Price</label>
+                        <input type="number" class="form-control" name="price" id="price" ngModel #price="ngModel" [(ngModel)]="product.price" minlength="3"  required>
+                        <span class="help-block" *ngIf="(productForm.submitted || price.touched) && price.errors?.required">Please enter your product name</span>
+                        <span class="help-block" *ngIf="price.touched && price.errors?.minlength">Must be more than 3 characters</span>
+                    </div>
+                    <div class="form-group" [class.has-error]="(productForm.submitted || description.touched) && description.invalid" [class.has-success]="description.valid">
+                        <label for="Product description" class="control-label">Product description</label>
+                        <textarea type="text" class="form-control" name="description" id="description" ngModel #description="ngModel" [(ngModel)]="product.description"   required ></textarea>
+                        <span class="help-block" *ngIf="(productForm.submitted || description.touched) && description.errors?.required">Please enter your product description</span>
+                        <span class="help-block" *ngIf="description.touched && description.errors?.minlength">Must be more than 10 characters</span>
+                    </div>
+                    <div class="form-group"  [class.has-error]="(productForm.submitted || image.touched) && image.invalid" [class.has-success]="image.valid">
+                        <label for="productimage" class="control-label">Image</label>
+                        <input type="text" class="form-control" name="image" id="image" ngModel #image="ngModel" [(ngModel)]="product.imagePath"   required minlength="6">
+                        <span class="help-block" *ngIf="(productForm.submitted || image.touched) && image.errors?.required">Please enter your product description</span>
+                        <span class="help-block" *ngIf="image.touched && image.errors?.minlength">Must be more than 6 characters</span>
+                    </div>
+                    <div class="form-group flex">
+                        <button class="btn" (click)="onSubmit(product)">Add</button> |
+                        <button class="btn" (click)="onClear()">Reset</button>
+                    </div>
+                    <div class="form-group flex">
+                        <button class="btn" (click)="toggle('editMode')">Edit Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <ng-template class="row" #editMode>
+          <div class="row">
+            <button type="button" class="btn" (click)="toggle('addMode')">Add Product</button>
+          </div>
+          <div class="row filter">
+            <div class="search">
+              <input type="text" class="form-control" placeholder="search" [(ngModel)] = "searchTerm" />
+            </div>
+          </div>
+          <div class="col-md-3 products" *ngFor="let product of filteredProducts, index as id">
+            <a
+    style="cursor: pointer;"
+    class="list-group-item clearfix">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{ product.name | uppercase }}</h4>
+      <button class="btn" [routerLink]="['/product-edit',product.productId]"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+      <button class="btn" (click)="onDelete(id,product)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </div>
+    <span class="pull-right">
+          <img
+            [src]="product.imagePath"
+            alt="{{ product.name }}"
+            class="img-responsive"
+            style="max-height: 50px;">
+        </span>
+  </a>
+          </div>
+          </ng-template>
+    </div>

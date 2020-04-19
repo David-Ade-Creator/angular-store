@@ -1,0 +1,23 @@
+.body{
+  margin-top: 2%;
+}
+.login{
+  background-color: white;
+  border-radius: 3px;
+  height:450px;
+}
+.signup{
+  background-color: white;
+  border-radius: 3px;
+  height:600px;
+}
+.logpad{
+  text-align: center;
+}
+.logpad .forgot{
+  color:red;
+}
+span.psw{
+  display: block;
+  float:right;
+}

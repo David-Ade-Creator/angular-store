@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-md-offset-4 col-xs-offset-3 form-group filter">
+      <input type="text" class="form-control" placeholder="search" [(ngModel)]="searchTerm">
+    </div>
+  </div>
+  <div class="row" *ngIf="filteredProducts?.length >= 1">
+  <mat-card
+  class="col-lg-2 col-md-3 col-sm-3 col-xs-6 product-list"
+  *ngFor="let product of filteredProducts, index as productId"
+  [routerLink]="['/detail',product.productId]"
+  [queryParams]="{'searchTerm':product.name, 'testParam' : 'testvalue'}">
+    <img
+    mat-card-image
+    [src]="product.imagePath"
+    alt="{{product.name}}"
+    >
+  <h3>{{ product.name | uppercase }}</h3>
+  <h3><i class="fa fa-rupee"></i>{{product.price}}</h3>
+  </mat-card>
+  </div>
+  <div class="row" *ngIf="filteredProducts?.length < 1">
+  <div class="emptysearch">
+<h4>Your search "{{searchTerm}}" did not match any products</h4>
+<h2>Try something like</h2>
+  <p>Use more general terms</p>
+  <p>Check your spelling</p>
+  </div>
+  </div>
+  <div class="row">
+    <app-footer></app-footer>
+  </div>
+</div>

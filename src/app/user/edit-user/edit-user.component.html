@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <mat-card class="col-md-6 col-md-offset-3 form">
+      <h3>Add New User Details</h3>
+    <form #infoForm="ngForm" (ngSubmit)="onUpdate(userinfo,userid)" novalidate>
+    <div class="form-group" [class.has-error]="(infoForm.submitted || fname.touched) && fname.invalid" [class.has-success]="fname.valid">
+      <label for="firstName" class="control-label">First name</label>
+      <input class="form-control" type="text" name="fname" id="fname" ngModel #fname="ngModel" [(ngModel)]="userinfo.fname" minlength="3" required>
+      <span class="help-block" *ngIf="(infoForm.submitted || fname.touched) && fname.errors?.required">Please enter your first name</span>
+      <span class="help-block" *ngIf="fname.touched && fname.errors?.minlength">Must be more than 3 characters</span>
+  </div>
+  <div class="form-group" [class.has-error]="(infoForm.submitted || lname.touched) && lname.invalid" [class.has-success]="lname.valid">
+    <label for="lastname" class="control-label">Last Name</label>
+    <input class="form-control" type="text" name="lname" id="lname" ngModel #lname="ngModel" [(ngModel)]="userinfo.lname" minlength="3" required>
+    <span class="help-block" *ngIf="(infoForm.submitted || lname.touched) && lname.errors?.required">Please enter your last name</span>
+    <span class="help-block" *ngIf="lname.touched && lname.errors?.minlength">Must be more than 3 characters</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="(infoForm.submitted || num.touched) && num.invalid" [class.has-success]="num.valid">
+      <label for="number" class="control-label">Phone Number</label>
+      <input class="form-control" type="number" name="num" id="num" ngModel #num="ngModel" [(ngModel)]="userinfo.num" minlength="9" required>
+      <span class="help-block" *ngIf="(infoForm.submitted || num.touched) && num.errors?.required">Please enter your phone number</span>
+    </div>
+
+    <div class="form-group" [class.has-error]="(email.touched || infoForm.submitted) && email.invalid" [class.has-success]="email.valid">
+    <label for="email" class="control-label">Email</label>
+    <input class="form-control" type="email" email name="email" id="email" ngModel #email="ngModel" [(ngModel)]="userinfo.email" placeholder="Ex. pat@example.com" required>
+    <span class="help-block" *ngIf="email.errors && email.errors.required && (email.touched || infoForm.submitted) ">
+      Email is required
+    </span>
+    <span class="help-block" *ngIf="email.errors?.email && email.invalid ">
+      Enter a valid Email
+    </span>
+  </div>
+
+    <div class="form-group"  [class.has-error]="(address.touched || infoForm.submitted) && address.invalid" [class.has-success]="address.valid">
+    <label for="address" class="control-label">Address</label>
+    <textarea class="form-control" type="text" name="address" id="address" ngModel #address="ngModel" [(ngModel)]="userinfo.address" placeholder="Ex. 100 Main St" required minlength="10"></textarea>
+    <span class="help-block" *ngIf="address.errors?.required && (address.touched || infoForm.submitted) ">
+      Enter your address
+    </span>
+    <span class="help-block" *ngIf="address.errors?.minlength && address.touched">
+      Address should me more than 10 characters
+    </span>
+    </div>
+
+    <div class="form-group" [class.has-error]="(city.touched || infoForm.submitted) && city.invalid" [class.has-success]="city.valid">
+        <label for="city" class="control-label">City</label>
+        <input class="form-control" type="text" name="city" id="city" ngModel #city="ngModel" [(ngModel)]="userinfo.city" placeholder="Ex. San Francisco" required minlength="3">
+        <span class="help-block" *ngIf="city.errors?.required && (city.touched || infoForm.submitted) ">
+          Enter your city
+        </span>
+        <span class="help-block" *ngIf="city.errors?.minlength && city.touched">
+          Enter a known city
+        </span>
+        </div>
+
+      <div class="form-group" [class.has-error]="(state.touched || infoForm.submitted) && state.invalid" [class.has-success]="state.valid">
+        <label for="state" class="control-label">State</label>
+        <input class="form-control" type="text" name="state" id="state" ngModel #state="ngModel" [(ngModel)]="userinfo.state" placeholder="Ex. California" required minlength="3">
+        <span class="help-block" *ngIf="state.errors?.required && (state.touched || infoForm.submitted) ">
+          Enter your state
+        </span>
+        <span class="help-block" *ngIf="state.errors?.minlength && state.touched">
+          Enter a known state
+        </span>
+        </div>
+
+      <div class="form-group" [class.has-error]="(pcode.touched || infoForm.submitted) && pcode.invalid" [class.has-success]="pcode.valid">
+        <label label="pcode" class="control-label">Postal Code</label>
+        <input class="form-control" name="pcode" type="number" id="pcode" ngModel #pcode="ngModel" [(ngModel)]="userinfo.pcode"  placeholder="Ex. 94105" required>
+        <span class="help-block" *ngIf="(infoForm.submitted || pcode.touched) && pcode.errors?.required">Please enter your Postal code</span>
+    </div>
+
+  </form>
+<mat-card-actions>
+  <button mat-button [disabled]="!infoForm.form.valid" (click)="onUpdate(userinfo,userid)">Update</button>
+  <button mat-button (click)="onCancel()">Cancel</button>
+</mat-card-actions>
+</mat-card>
+  </div>
+</div>

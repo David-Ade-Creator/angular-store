@@ -1,0 +1,65 @@
+<div class="container-fluid">
+<mat-sidenav-container
+    class="example-container" (backdropClick)="close()">
+  <mat-sidenav class="sidenav" #sidenav (keydown.escape)="close()" disableClose>
+    <mat-list class="sidelist">
+  <mat-list-item>
+    <h4 mat-line>ShoeDADS</h4><button mat-raised-button type="button" name="button" color="primary" (click)="close()">X</button>
+    </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <p mat-line><a routerLink="/home" (click)="close()">Home</a></p>
+    <p mat-line><a routerLink="/product" (click)="close()">Collection</a></p>
+    <p mat-line><a routerLink="/cart" (click)="close()">Cart</a></p>
+    <p mat-line><a routerLink="/profile" (click)="close()">Profile</a></p>
+    <p mat-line><a routerLink="/login" (click)="close()">Sign Up</a></p>
+    <p mat-line><a routerLink="/login" (click)="close()">Login</a></p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <p mat-line><button type="button" mat-raised-button color="primary" (click)="onLogout();close()">Logout</button></p>
+    <p mat-line><button type="button" mat-button>Help/Support</button></p>
+    <p mat-line><button type="button" mat-button>FAQ</button></p>
+    <p mat-line><button type="button" mat-button>About US</button></p>
+    <p mat-line><button type="button" mat-button routerLink="/admin">Admin</button></p>
+  </mat-list-item>
+</mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="nav-bar">
+    <mat-card>
+        <div class="menu-bar">
+          <p (click)="sidenav.open()"><button mat-button><i class="fa fa-bars" aria-hidden="true"></i></button></p>
+        </div>
+        <div class="logo">
+          <h2><i class="fa fa-eercast" aria-hidden="true"></i></h2>
+        </div>
+        <div class="navs">
+          <ul>
+          <li routerLinkActive="active"><a routerLink="/home"><button mat-button color="warn">ShoeDADS</button></a></li>
+          <li><a routerLink="/product"><button mat-button>Collection</button></a></li>
+          <li routerLinkActive="active"><a><button mat-button [matMenuTriggerFor]="profile"><i class="fa fa-user" aria-hidden="true"></i></button></a></li>
+          <mat-menu #profile="matMenu">
+            <button mat-menu-item routerLink="/profile">Account</button>
+            <button mat-menu-item routerLink="/login">Login/Sign Up</button>
+            <button mat-menu-item (click)="onLogout();">Login Out</button>
+         </mat-menu>
+          <li routerLinkActive="active"><a routerLink="/admin"><button mat-button>Admin</button></a></li>
+          </ul>
+        </div>
+        <div class="cart">
+          <ul>
+          <li routerLinkActive="active"><a routerLink="/cart"><button mat-button type="button" name="button"><i class="fa fa-shopping-bag" aria-hidden="true"></i></button></a></li>
+          </ul>
+        </div>
+    </mat-card>
+    <!--<div *ngIf="showLoadingIndicator">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>-->
+    <div class="spinner" *ngIf="showLoadingIndicator">
+      <div class="loader"></div>
+    </div>
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>

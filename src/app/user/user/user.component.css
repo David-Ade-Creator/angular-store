@@ -1,0 +1,23 @@
+.top{
+  text-align: center;
+  font-size: 20px;
+}
+.flex{
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+  color:tomato;
+  cursor:default;
+  margin-bottom: 10px;
+}
+mat-card{
+  margin-top: 10px;
+}
+.but{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+mat-card-actions{
+  margin-bottom: 10px;
+}

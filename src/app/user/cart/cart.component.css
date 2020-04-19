@@ -1,0 +1,56 @@
+.col-md-3{
+margin-top: 20px;
+}
+mat-card{
+  background-color: white;
+  color:black;
+    width: 100%;
+}
+img{
+  height:200px;
+}
+
+a div{
+  display: flex;
+}
+
+.container-fluid .total{
+  margin-top: 100px;
+}
+.container-fluid .total .content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.empty{
+  position: absolute;
+  text-align: center;
+  top:50%;
+  left:50%;
+  bottom:0;
+  right:0;
+  transform: translate(-50%, -50%);
+}
+.empty h2{
+  color:grey;
+  font-style:oblique;
+}
+
+.empty .goshop{
+  weight:200px;
+  height:70%;
+  border-radius: 10%;
+}
+.cartproduct{
+  width: 100%;
+  height: 200px;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cartimg img{
+  max-height: 150px;
+  max-width: 200px;
+}

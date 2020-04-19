@@ -1,0 +1,21 @@
+.row{
+  display: flex;
+  justify-content: center;
+}
+mat-card{
+  border-radius: 0;
+  height: 70%;
+}
+mat-card-actions{
+  display:flex;
+  justify-content: space-between;
+}
+img{
+  height:50%;
+}
+.back{
+  margin: 0;
+  border-radius: 0;
+  background-color: #7419a6;
+  color:white;
+}

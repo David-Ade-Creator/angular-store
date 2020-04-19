@@ -1,0 +1,22 @@
+.container-fluid .product-list{
+  background-color: white;
+  border-radius: 0;
+  outline: none;
+}
+img{
+  height:200px;
+}
+.filter{
+  margin-top: 10px;
+}
+.emptysearch{
+text-align: center;
+margin-top:15%;
+margin-bottom: 15%;
+}
+
+@media screen and (max-width: 600px) {
+  h3{
+    font-size: 11px;
+  }
+}

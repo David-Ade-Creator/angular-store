@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row">
+      <mat-card col-md-12 *ngFor="let userinfo of userinfos, index as id">
+        <div class="top">
+          <p>User Details</p>
+          </div>
+          <div class="details">
+            <p>{{userinfo.fname}} {{userinfo.lname}}</p>
+            <p>{{userinfo.num}}</p>
+            <p>{{userinfo.email}}</p>
+          </div>
+          <div class="flex">
+            <button mat-raised-button color="primary"><i class="fa fa-bookmark-o" aria-hidden="true"></i>Wishlist</button>
+            <button mat-raised-button color="primary" routerLink="/cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Cart</button>
+            <button mat-raised-button color="primary" routerLink="/"><i class="fa fa-check" aria-hidden="true"></i>Orders</button>
+          </div>
+          <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+      {{panelOpenState ? 'My Address' : 'Address'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Address: {{userinfo.address}}</p>
+    <p>Zipcode: {{userinfo.pcode}}</p>
+    <p>City: {{userinfo.city}}</p>
+    <p>State: {{userinfo.state}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-card-actions>
+  <button mat-raised-button color="primary" [routerLink]="['/edit',userinfo.userid]">Edit</button>
+  <button mat-raised-button color="primary" (click)='delete(id,userinfo)'>Delete</button>
+</mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="row but" *ngIf="userinfos?.length < 2">
+        <button mat-raised-button routerLink="/new-user">Add new account</button>
+    </div>
+  </div>

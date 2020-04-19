@@ -1,0 +1,40 @@
+<div *ngIf="items?.length === 0">
+  <div class="empty">
+  <div class="goshop">
+    <h2>"Your cart is empty, change and style your look"</h2>
+    <button mat-raised-button color="primary" routerLink="/product">Cart</button>
+  </div>
+  </div>
+</div>
+
+<div class="container-fluid" *ngIf="items?.length > 0">
+  <div class="row"
+     *ngFor="let item of items; index as id">
+  <mat-card class="cartproduct">
+    <div class="cartimg col-lg-4">
+      <img
+      mat-card-image
+      [src]="item.imagePath"
+      alt="{{item.name}}"
+      >
+    </div>
+    <div class="cartimg col-lg-4">
+      <h5>{{ item.name }}</h5>
+      <p><span class="glyphicon glyphicon-plus" (click)="incrementQty(item)"></span>{{item.qty}}
+        <span *ngIf="item.qty > 1 else del" class="glyphicon glyphicon-minus" (click)="decrementQty(item)"></span>
+      <ng-template #del><i class="fa fa-trash-o" aria-hidden="true" (click)="delete(id,item);amt(item)"></i></ng-template></p><br>
+      <p><i class="fa fa-rupee"></i>{{item.price*item.qty}}<p>
+    </div>
+    <div class="cartimg col-lg-4">
+       <button type="button" mat-button (click)="delete(id,item);amt(item)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    </div>
+    </mat-card>
+    </div>
+    <div class="row total">
+      <mat-card class="content">
+        <mat-content><p>Total Price:<i class="fa fa-rupee"></i>{{cartTotal}}</p></mat-content>
+        <mat-actions>
+          <button mat-raised-button color="primary" type="button" name="button">CheckOut({{items.length}})</button>
+          </mat-actions>
+      </mat-card>
+  </div>

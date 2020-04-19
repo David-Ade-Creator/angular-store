@@ -1,0 +1,39 @@
+.content{
+  margin-left: 10px;
+}
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+button{
+  background-color: #7419a6;
+  color: white;
+}
+
+.products{
+  margin: 0;
+}
+.filter{
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  margin: 10px 0 20px 0;;
+}
+.search{
+  width:20%;
+}
+
+@media screen and (max-width: 992px){
+
+  .search{
+    width:150px;
+  }
+}
