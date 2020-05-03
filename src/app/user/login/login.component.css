@@ -1,15 +1,9 @@
-.body{
-  margin-top: 2%;
-}
 .login{
+  border: 1px solid #b8b8b8;
   background-color: white;
   border-radius: 3px;
+  margin-top: 10%;
   height:450px;
-}
-.signup{
-  background-color: white;
-  border-radius: 3px;
-  height:600px;
 }
 .logpad{
   text-align: center;
