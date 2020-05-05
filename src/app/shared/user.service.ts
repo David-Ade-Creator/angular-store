@@ -9,7 +9,7 @@ newUserinfo : Userinfo;
 userid;
 
 private userinfos: Userinfo[] = [
-  new Userinfo(1,'David','Adeyemi',8971558784,'www.davidadeyemi@gmail.com','Anuradha Nilayem', 'Bangalore','Karnataka', 560097)
+  //new Userinfo(1,'David','Adeyemi',8971558784,'www.davidadeyemi@gmail.com','Anuradha Nilayem', 'Bangalore','Karnataka', 560097)
 ];
 
 
